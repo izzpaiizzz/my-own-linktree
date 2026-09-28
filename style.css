@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(190deg, #1a1a1a, #2e2e2e, #000000);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: 0.15s ease-out;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 30%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn i {
+  width: 25px;
+  font-size: 1.25rem;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.btn span {
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 25px; 
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border-color: transparent;
+}
+
+.btn.youtube:hover {
+  background: #ff0000;
+  border-color: transparent;
+}
+
+.btn.whatsapp:hover {
+  background: #25d366;
+  border-color: transparent;
+}
