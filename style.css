@@ -1,3 +1,27 @@
+:root {
+  --bg-gradient: linear-gradient(190deg, #2c3e50, #000000, #b180e3);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-sub: #a0aec0;
+  --btn-bg: rgba(255, 255, 255, 0.1);
+  --btn-shadow: rgba(255, 255, 255, 0.2);
+  --footer-icon: rgba(255, 255, 255, 0.6);
+  --footer-icon-hover: #ffffff;
+}
+
+body.light-mode {
+  --bg-gradient: linear-gradient(190deg, #e0eafc, #ffffff, #ffb347);
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --card-border: rgba(255, 140, 0, 0.2);
+  --text-main: #1a1a1a;
+  --text-sub: #4a5568;
+  --btn-bg: rgba(255, 255, 255, 0.85);
+  --btn-shadow: rgba(0, 0, 0, 0.1);
+  --footer-icon: rgba(0, 0, 0, 0.5);
+  --footer-icon-hover: #ff8c00;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,27 +30,96 @@
 }
 
 body {
-  background: linear-gradient(190deg, #2c3e50, #000000, #b180e3);
+  background: var(--bg-gradient);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  transition: background 0.3s ease;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 40px 30px;
+  border: 1px solid var(--card-border);
+  padding: 30px 30px 40px 30px;
   border-radius: 20px;
   text-align: center;
   max-width: 380px;
   width: 100%;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  transition: 0.15s ease-out;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease-out;
   overflow: hidden;
   touch-action: none;
+}
+
+.theme-switch-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 26px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f39c12;
+  transition: 0.4s;
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.icon-sun {
+  color: #ffffff;
+  font-size: 11px;
+  z-index: 1;
+}
+
+.icon-moon {
+  color: #f1c40f;
+  font-size: 11px;
+  z-index: 1;
+}
+
+input:checked + .slider {
+  background-color: #2c3e50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
 .profile-img {
@@ -34,7 +127,7 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255);
+  border: 3px solid #ffffff;
   outline: 4px solid #ffffff;
   outline-offset: -4px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
@@ -42,17 +135,19 @@ body {
 }
 
 h1 {
-  color: #ffffff;
+  color: var(--text-main);
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
 
 h2 {
-  color: #a0aec0;
+  color: var(--text-sub);
   font-size: 0.95rem;
   font-weight: 400;
   margin-bottom: 25px;
+  transition: color 0.3s ease;
 }
 
 .links {
@@ -67,14 +162,14 @@ h2 {
   position: relative;
   padding: 12px 20px;
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--text-main);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.2s ease, color 0.3s ease;
+  background: var(--btn-bg);
   border: none;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px var(--btn-shadow);
   overflow: hidden;
   isolation: isolate;
 }
@@ -90,12 +185,13 @@ h2 {
 .btn span {
   flex-grow: 1;
   text-align: center;
-  margin-right: 25px; 
+  margin-right: 25px;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
 }
 
 .btn.instagram:hover {
@@ -119,13 +215,13 @@ h2 {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--footer-icon);
   font-size: 1.4rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: #ffffff;
+  color: var(--footer-icon-hover);
   transform: translateY(-2px) scale(1.1);
 }

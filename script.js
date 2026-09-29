@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const text = "Student of SMK Talenta Bangsa";
-  const speed = 70; // Kecepatan ketik (milidetik)
+  const speed = 70;
   let i = 0;
 
   function typeWriter() {
@@ -12,10 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   typeWriter();
-});
-document.addEventListener('DOMContentLoaded', () => {
+
   const card = document.querySelector('.card');
-  
+  const switchContainer = document.querySelector('.theme-switch-container');
+
+  // Mencegah gerakan kartu saat berinteraksi dengan saklar
+  if (switchContainer) {
+    ['mousemove', 'touchmove', 'touchstart', 'pointermove'].forEach(evt => {
+      switchContainer.addEventListener(evt, (e) => {
+        e.stopPropagation();
+      });
+    });
+  }
+
+  // Efek Tilt 3D Kartu
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -39,5 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   card.addEventListener('touchend', () => {
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+  });
+
+  // Fitur Dark / Light Mode
+  const toggleSwitch = document.querySelector('#theme-toggle');
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    toggleSwitch.checked = false;
+  } else {
+    toggleSwitch.checked = true;
+  }
+
+  toggleSwitch.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      document.body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+    }
   });
 });
