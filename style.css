@@ -32,9 +32,11 @@ body {
 .profile-img {
   width: 120px;
   height: 120px;
-  border-radius: 30%;
+  border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255);
+  outline: 4px solid #ffffff;
+  outline-offset: -4px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   margin-bottom: 20px;
 }
