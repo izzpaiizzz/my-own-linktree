@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
 :root {
   --bg-gradient: linear-gradient(190deg, #2c3e50, #000000, #b180e3);
   --card-bg: rgba(255, 255, 255, 0.05);
@@ -8,6 +10,9 @@
   --btn-shadow: rgba(255, 255, 255, 0.2);
   --footer-icon: rgba(255, 255, 255, 0.6);
   --footer-icon-hover: #ffffff;
+  --img-border: #ffffff;
+  --img-outline: rgba(255, 255, 255);
+  --img-shadow: 0 0 20px rgba(177, 128, 227, 0.6), 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
 body.light-mode {
@@ -16,17 +21,20 @@ body.light-mode {
   --card-border: rgba(255, 140, 0, 0.2);
   --text-main: #1a1a1a;
   --text-sub: #4a5568;
-  --btn-bg: rgba(255, 255, 255, 0.85);
-  --btn-shadow: rgba(0, 0, 0, 0.1);
-  --footer-icon: rgba(0, 0, 0, 0.5);
+  --btn-bg: rgba(255, 255, 255, 0.1);
+  --btn-shadow: rgba(0, 0, 0, 0.2);
+  --footer-icon: rgba(25, 25, 25, 0.47);
   --footer-icon-hover: #ff8c00;
+  --img-border: #ffffff;
+  --img-outline: rgba(0,0,0, 0,3);
+  --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -127,11 +135,12 @@ input:checked + .slider:before {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ffffff;
-  outline: 4px solid #ffffff;
+  border: 3px solid var(--img-border);
+  outline: 4px solid var(--img-outline);
   outline-offset: -4px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  box-shadow: var(--img-shadow);
   margin-bottom: 20px;
+  transition: border-color 0.3s ease, outline-color 0.3s ease, box-shadow 0.3 ease;
 }
 
 h1 {

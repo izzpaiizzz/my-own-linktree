@@ -1,3 +1,5 @@
+/*Efek Typing Agak Ganteng*/
+
 document.addEventListener('DOMContentLoaded', () => {
   const text = "Student of SMK Talenta Bangsa";
   const speed = 70;
@@ -15,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const card = document.querySelector('.card');
   const switchContainer = document.querySelector('.theme-switch-container');
-
-  // Mencegah gerakan kartu saat berinteraksi dengan saklar
   if (switchContainer) {
     ['mousemove', 'touchmove', 'touchstart', 'pointermove'].forEach(evt => {
       switchContainer.addEventListener(evt, (e) => {
@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Efek Tilt 3D Kartu
+  /*Efek Tilt Kartu (Yang Ini AI Wkwkwk)*/
+  
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -51,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
   });
 
-  // Fitur Dark / Light Mode
+
+  /*Fitur Speed / Eminem Mode*/
+  
   const toggleSwitch = document.querySelector('#theme-toggle');
   const savedTheme = localStorage.getItem('theme');
 
