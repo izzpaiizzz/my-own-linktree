@@ -16,18 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
   typeWriter();
 
   const card = document.querySelector('.card');
-  const switchContainer = document.querySelector('.theme-switch-container');
-  if (switchContainer) {
-    ['mousemove', 'touchmove', 'touchstart', 'pointermove'].forEach(evt => {
-      switchContainer.addEventListener(evt, (e) => {
-        e.stopPropagation();
-      });
-    });
-  }
 
   /*Efek Tilt Kartu (Yang Ini AI Wkwkwk)*/
   
-  card.addEventListener('mousemove', (e) => {
+  /*!!card.addEventListener('mousemove', (e) => {
+    if (e.target.closest('.footer-links, .links, .theme-switch-container')) {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      return;
+    }
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
@@ -41,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   card.addEventListener('touchmove', (e) => {
     const touch = e.touches[0];
+    const targetEl = document.elementFromPoint(touch.clientX, touch.clientY) || e.target;
+    if (targetEl && targetEl.closest('.footer-links, .links, .theme-switch-container')) {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      return;
+    }
     const rect = card.getBoundingClientRect();
     const x = touch.clientX - rect.left - rect.width / 2;
     const y = touch.clientY - rect.top - rect.height / 2;
@@ -52,7 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
   });
 
-
+  const interactiveElements = document.querySelectorAll('.footer-links, .links, .theme-switch-container');
+  interactiveElements.forEach(el => {
+    ['mousemove', 'touchstart', 'touchmove', 'pointermove'].forEach(evt => {
+      el.addEventListener(evt, (e) => {
+        e.stopPropagation();
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  });*/ /*Gw matiin dulu,banyak bug*/
+  
   /*Fitur Speed / Eminem Mode*/
   
   const toggleSwitch = document.querySelector('#theme-toggle');

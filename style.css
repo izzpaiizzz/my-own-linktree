@@ -9,25 +9,25 @@
   --btn-bg: rgba(255, 255, 255, 0.1);
   --btn-shadow: rgba(255, 255, 255, 0.2);
   --footer-icon: rgba(255, 255, 255, 0.6);
-  --footer-icon-hover: #ffffff;
+  --footer-icon-hover: #b180e3;
   --img-border: #ffffff;
   --img-outline: rgba(255, 255, 255);
   --img-shadow: 0 0 20px rgba(177, 128, 227, 0.6), 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
 body.light-mode {
-  --bg-gradient: linear-gradient(190deg, #e0eafc, #ffffff, #ffb347);
-  --card-bg: rgba(255, 255, 255, 0.65);
+  --bg-gradient: linear-gradient(190deg, #e0eafc 0%, #fde7ae 70%, #ffb347 100%);
+  --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 140, 0, 0.2);
   --text-main: #1a1a1a;
   --text-sub: #4a5568;
   --btn-bg: rgba(255, 255, 255, 0.1);
   --btn-shadow: rgba(0, 0, 0, 0.2);
-  --footer-icon: rgba(25, 25, 25, 0.47);
+  --footer-icon: rgba(0, 0, 0, 0.6);
   --footer-icon-hover: #ff8c00;
-  --img-border: #ffffff;
-  --img-outline: rgba(0,0,0, 0,3);
-  --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+  --img-border: #dc9352;
+  --img-outline: #dc9352;
+  --img-shadow: 0 10px 25px rgba(255,140,0, 0.3), 0 4px 10px rgba(255,140,0, 0.2);
 }
 
 * {
